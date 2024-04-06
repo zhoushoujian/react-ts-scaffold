@@ -1,0 +1,53 @@
+.header {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  padding: 0 30px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  -webkit-app-region: drag;
+
+  .headerLeft {
+    display: flex;
+    align-items: center;
+
+    .headerLogo {
+      margin-left: 16px;
+      width: 72px;
+      height: 40px;
+    }
+
+    .headerWebTitle {
+      line-height: 50px;
+      margin-left: 24px;
+      font-size: 20px;
+      font-weight: 600;
+      user-select: none;
+    }
+  }
+
+  .headerRight {
+    justify-content: flex-end;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+
+    .username {
+      user-select: none;
+    }
+
+    .interval {
+      margin: 0 10px;
+      color: #d0c3c3;
+      user-select: none;
+    }
+
+    .logout {
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+}

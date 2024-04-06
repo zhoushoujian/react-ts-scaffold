@@ -17,17 +17,13 @@ export default defineConfig({
   server: {
     port: 8080,
     strictPort: true,
-    open: true,
+    open: `/demo/project`,
     hmr: true,
     proxy: {
-      '/api': {
-        target: 'http://10.30.4.94:8077',
+      //todo
+      '/authCenter': {
+        target: 'http://10.30.4.94:8190',
         changeOrigin: true,
-        rewrite: (path: string) => {
-          // eslint-disable-next-line no-console
-          console.log('proxy received, path: ', path);
-          return `http://10.30.4.94:8077${path}`;
-        },
       },
     },
   },
@@ -40,6 +36,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      os: 'rollup-plugin-node-polyfills/polyfills/os',
+      path: 'rollup-plugin-node-polyfills/polyfills/path',
     },
   },
   // optimizeDeps: {

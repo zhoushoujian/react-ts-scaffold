@@ -1,30 +1,49 @@
-# 基于react的ts空项目模板
+# 基于react的ts脚手架项目
 
-```高度可订制的react项目空壳```
+## 框架
 
-## Framework
+react16 + redux + typescript + antd4 + webpack5 + less + css module + eslint
 
-react18 + redux + typescript + webpack5 + less + css module + eslint
+## 介绍
 
-## Install
+1. 本脚手架默认采用`react16+antd4`，如需使用最新的框架(react18 + antd5)，需手动切到分支`release/react18+antd5`
+2. 本脚手架里的ts编译方式有esbuild，babel和swc，默认使用babel构建，如需更换，请修改`webpack\common.ts`
+3. 本脚手架支持使用webpack5和vite4，默认使用webpack打包，如需使用vite，运行`npm run vite`
+4. 脚手架中todo的地方皆需要在具体项目里替换,全局搜索todo即可
+
+## 安装
+
+node: 16.20.0（推荐）
+pnpm: 7.32.0（推荐）
 
 ```shell
-npm install
-npm start
+pnpm install
+pnpm start
 ```
 
-## 关联链接
+## 功能
 
-[快速打包web页面到移动端app](https://github.com/zhoushoujian/cordova-template)  
+### 通用能力
 
-[快速打包web页面到电脑应用程序](https://github.com/zhoushoujian/electron-template)  
+1. eslint相关配置全家桶
+2. husky,lint-stage,commitlint相关的git提交钩子
+3. typescript相关配置
+4. webpack5,vite等构建工具相关的配置（包含polyfill,热更新,前端代理,css module等）
+5. react框架全家桶环境搭建
+6. redux框架及中间件相关环境搭建
+7. 封装常用的react hooks操作
+8. 提供ES标准的高版本的polyfill测试用例
+9. 登录后优先跳往401后的那个页面
 
-[express + mongodb + redis + jwt + typescript项目模板](https://github.com/zhoushoujian/typescript-express-templates)  
+### 专用能力
 
-[nextjs + redux + express + less服务端渲染项目模板](https://github.com/zhoushoujian/nextjs)
-
-[taro小程序项目模板](https://github.com/zhoushoujian/taro)
-
-## License
-
-[MIT](./LICENSE)
+1. 集成sso逻辑
+2. 集成乾坤微前端的框架服务能力
+3. 封装路由守卫，对菜单类的路由进行鉴权
+4. 集成登录页面
+5. 登录成功后自动跳往该用户拥有权限的第一个菜单路由页面
+6. 通过域名访问自动跳往该用户拥有权限的第一个菜单路由页面
+7. 集成左侧菜单功能和顶部导航栏功能
+8. 封装axios拦截器及请求前缀
+9. 封装cookie相关的操作
+10. 菜单带链接跳转

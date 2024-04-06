@@ -10,14 +10,18 @@ const { srcPath, moduleFileExtensions, appPath } = config;
 const isDev = process.env.NODE_ENV === 'development';
 consoleFormat();
 
-const common = {
+const common: webpack.Configuration = {
   context: appPath,
   output: {
-    filename: 'static/js/[name].js',
-    chunkFilename: 'static/js/[name].chunk.js',
-    publicPath: '',
+    //todo
+    filename: 'scaffold/js/[name].js',
+    //todo
+    chunkFilename: 'scaffold/js/[name].chunk.js',
+    publicPath: '/',
     clean: true,
+    path: path.resolve(__dirname, '../dist'),
   },
+  target: ['web'],
   resolve: {
     extensions: moduleFileExtensions,
     plugins: [
@@ -38,20 +42,19 @@ const common = {
         oneOf: [
           {
             test: /\.[jt]sx?$/,
-            include: srcPath,
-            exclude: /node_modules/,
-            // use: ['thread-loader', 'babel-loader'],
-            use: [
-              {
-                loader: 'esbuild-loader',
-                options: {
-                  loader: 'tsx',
-                  target: 'es2015',
-                  // eslint-disable-next-line global-require
-                  // tsconfigRaw: require('../tsconfig.json'),
-                },
-              },
-            ],
+            include: [srcPath],
+            use: ['thread-loader', 'babel-loader'],
+            // use: [
+            //   {
+            //     loader: 'esbuild-loader',
+            //     options: {
+            //       loader: 'tsx',
+            //       target: 'es2015',
+            //       // eslint-disable-next-line global-require
+            //       // tsconfigRaw: require('../tsconfig.json'),
+            //     },
+            //   },
+            // ],
             // use: {
             //   loader: 'swc-loader',
             // },

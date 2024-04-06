@@ -3,6 +3,4 @@ declare module '*.less' {
   export default content;
 }
 
-interface Window {
-  axios: any;
-}
+declare module '*.png';

@@ -1,22 +1,21 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
-import axios from 'axios';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { axiosInterceptorsConfig } from '@/utils/common';
-import store from '@/ducks/main';
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
+import store from '@/store/main';
 import Routers from './router';
-
-window.axios = axios.create({ baseURL: `/` });
-axiosInterceptorsConfig();
+import 'antd/dist/antd.css';
 
 const container = document.getElementById('root');
-const root = createRoot(container!);
-root.render(
-  <React.StrictMode>
+
+ReactDOM.render(
+  <ConfigProvider locale={zhCN}>
     <Provider store={store}>
       <Routers />
     </Provider>
-  </React.StrictMode>,
+  </ConfigProvider>,
+  container,
 );
 
 // 开发环境开启热更新

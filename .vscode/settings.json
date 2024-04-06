@@ -28,6 +28,8 @@
   },
   "git.ignoreLimitWarning": true,
   "cSpell.words": [
+    "antd",
+    "Popconfirm",
     "szhou"
   ]
 }
