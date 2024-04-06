@@ -111,5 +111,5 @@
       "not ie <= 8"
     ]
   },
-  "repository": "https://github.com/zhoushoujian/typescript-react-templates"
+  "repository": "https://github.com/zhoushoujian/react-ts-scaffold"
 }
