@@ -6,12 +6,11 @@ import Routers from './router';
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
+
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <Routers />
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <Routers />
+  </Provider>,
 );
 
 // 开发环境开启热更新
