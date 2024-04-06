@@ -17,7 +17,7 @@ export default defineConfig({
   server: {
     port: 8080,
     strictPort: true,
-    open: true,
+    open: `http://localhost:8080/#demo`,
     hmr: true,
     proxy: {
       '/api': {

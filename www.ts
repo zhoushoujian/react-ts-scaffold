@@ -20,13 +20,14 @@ const { publicPath } = webpackConf.output;
 app.use(webpackDevMiddleware(compiler, { stats: { colors: true, cached: false }, publicPath }));
 app.use(webpackHotMiddleware(compiler));
 
+//todo
 app.use(
-  '/api/',
-  proxy('http://10.30.4.94:8077', {
+  '/authCenter/',
+  proxy('http://10.30.4.94:8190', {
     proxyReqPathResolver(req: any) {
       // eslint-disable-next-line no-console
       console.log('proxy received, req.url', req.url);
-      return 'http://10.30.4.94:8077/api' + req.url;
+      return 'http://10.30.4.94:8190/authCenter' + req.url;
     },
   }),
 );
@@ -35,7 +36,7 @@ const port = 8080;
 const host = '0.0.0.0';
 
 app.listen(port, host, () => {
-  const url = `http://localhost:${port}`;
+  const url = `http://localhost:${port}/#demo`;
   // eslint-disable-next-line no-console
   console.info('服务地址：', url);
   openBrowser(url);

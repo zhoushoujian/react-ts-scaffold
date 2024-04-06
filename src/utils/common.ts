@@ -1,11 +1,13 @@
+import { verifySsoToken } from '@szhou/script-tools';
 import { message } from 'antd';
 import * as axiosPackage from 'axios';
 
 // axios拦截器配置
-export const axiosInterceptorsConfig = () => {
-  window.axios.defaults.timeout = 10000;
+export const axiosInterceptorsConfig = (request: axiosPackage.Axios) => {
+  request.defaults.timeout = 10000;
 
-  window.axios.interceptors.request.use(
+  request.interceptors.request.use(
+    //@ts-ignore
     function (config: axiosPackage.AxiosRequestConfig) {
       return config;
     },
@@ -16,11 +18,23 @@ export const axiosInterceptorsConfig = () => {
     },
   );
 
-  window.axios.interceptors.response.use(
+  request.interceptors.response.use(
     (response: axiosPackage.AxiosResponse) => {
       return response.data;
     },
     (error: axiosPackage.AxiosError) => {
+      const { response } = error;
+      const { status } = response || {};
+      if (status === 401 || status === 403) {
+        return verifySsoToken({
+          backToLoginFunc: () => {
+            window.location.href = `${window.location.origin}/login`;
+          },
+          //todo
+          setTokenFunc: (token: string) => localStorage.setItem('demo-userToken', token),
+          afterLoginFunc: () => Promise.resolve(true),
+        });
+      }
       return Promise.reject(error); // 返回接口的错误信息
     },
   );

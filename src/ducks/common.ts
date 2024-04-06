@@ -15,9 +15,7 @@ interface IAction {
 export default function reducer(state = initialState(), action: IAction) {
   switch (action.type) {
     case REDUX:
-      return Object.assign({}, state, {
-        redux: action.data,
-      });
+      return { ...state, redux: action.data };
     default:
       return state;
   }
@@ -25,8 +23,5 @@ export default function reducer(state = initialState(), action: IAction) {
 
 // update
 export const updateRedux = (data: string) => {
-  return {
-    type: REDUX,
-    data,
-  };
+  return { type: REDUX, data };
 };

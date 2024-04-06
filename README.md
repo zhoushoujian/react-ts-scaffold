@@ -1,29 +1,21 @@
-# 基于react的ts空项目模板
+# 基于react的ts脚手架项目
 
-```高度可订制的react项目空壳```
+## 框架
 
-## Framework
+react18 + redux + typescript + antd5 + webpack5 + less + css module + eslint
 
-react18 + redux + typescript + webpack5 + less + css module + eslint
+## 介绍
 
-## Install
+1. 本分支使用`react18+antd5`,，如需使用react16+antd3，需手动切到分支`release/react16+antd3`
+2. ts loader可选方式有esbuild，babel和swc，默认使用esbuild构建，如需更换，请修改`webpack\common.ts`
+3. 本脚手架支持使用webpack5和vite4，默认使用webpack打包，如需使用vite，运行`npm run vite`
+
+## 安装
 
 ```shell
 npm install
 npm start
 ```
-
-## 关联链接
-
-[快速打包web页面到移动端app](https://github.com/zhoushoujian/cordova-template)  
-
-[快速打包web页面到电脑应用程序](https://github.com/zhoushoujian/electron-template)  
-
-[express + mongodb + redis + jwt + typescript项目模板](https://github.com/zhoushoujian/typescript-express-templates)  
-
-[nextjs + redux + express + less服务端渲染项目模板](https://github.com/zhoushoujian/nextjs)
-
-[taro小程序项目模板](https://github.com/zhoushoujian/taro)
 
 ## License
 
