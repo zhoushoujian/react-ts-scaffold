@@ -2,11 +2,13 @@
 
 ## 框架
 
-react16 + redux + typescript + antd3 + webpack5 + less + css module + eslint
+react18 + redux + typescript + antd5 + webpack5 + less + css module + eslint
 
 ## 介绍
 
-本脚手架默认采用`react16+antd3`，如需使用最新的框架(react18 + antd5)，需切换`tag`到`react18+antd5`
+1. 本分支使用`react18+antd5`,，如需使用react16+antd3，需手动切到分支`release/react16+antd3`
+2. ts loader可选方式有esbuild，babel和swc，默认使用esbuild构建，如需更换，请修改`webpack\common.ts`
+3. 本脚手架支持使用webpack5和vite4，默认使用webpack打包，如需使用vite，运行`npm run vite`
 
 ## 安装
 

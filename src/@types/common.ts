@@ -1,4 +1,3 @@
-export type IRes<T> = {
-  result: T;
-  status: number;
-};
+import { AxiosResponse } from 'axios';
+
+export type IApiResponse<T> = Promise<AxiosResponse<T, any>>;

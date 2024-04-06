@@ -1,16 +1,17 @@
 import React, { lazy, Suspense } from 'react';
-import { Switch, HashRouter, Route } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { Spin } from 'antd';
 
-const Home = lazy(() => import('./views/index'));
+const Demo = lazy(() => import('./views/demo/index'));
 
 const Routers = () => {
   return (
     <HashRouter basename='/'>
       <Suspense fallback={<Spin />}>
-        <Switch>
-          <Route path='/' render={() => <Home />} />
-        </Switch>
+        <Routes>
+          {/* todo */}
+          <Route path='/demo' element={<Demo />} />
+        </Routes>
       </Suspense>
     </HashRouter>
   );

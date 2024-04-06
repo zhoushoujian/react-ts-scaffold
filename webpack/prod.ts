@@ -11,7 +11,7 @@ import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import config from './config';
 import commonConf from './common';
 
-const { srcPath, publicPath, appPath } = config;
+const { publicPath, appPath } = config;
 const smp = new SpeedMeasurePlugin();
 
 const prod = smp.wrap(
@@ -21,7 +21,10 @@ const prod = smp.wrap(
     devtool: 'nosources-source-map',
     context: appPath,
     bail: true,
-    entry: [path.join(srcPath, '../src/index.tsx')],
+    entry: {
+      polyfill: ['core-js/stable'],
+      index: path.join(__dirname, '../src/index.tsx'),
+    },
     output: {
       //@ts-ignore
       pathinfo: false,

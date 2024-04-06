@@ -1,7 +1,7 @@
 import React from 'react';
-import Style from './index.module.less';
+import styles from './index.module.less';
 
-const colors = ['#fff', '#ff0', '#f00', '#f0f', '#0ff', '#00f', '#0f0'];
+const colors = ['#ff0', '#f00', '#f0f', '#0ff', '#00f', '#0f0'];
 
 const Loading = ({ text = 'loading' }) => {
   const changeColor = () => {
@@ -10,7 +10,7 @@ const Loading = ({ text = 'loading' }) => {
   };
 
   return (
-    <div className={Style.loading} onClick={changeColor}>
+    <div className={styles.loading} onClick={changeColor}>
       {text}
     </div>
   );

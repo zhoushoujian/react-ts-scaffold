@@ -1,16 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import store from '@/ducks/main';
 import Routers from './router';
 
 const container = document.getElementById('root');
+const root = createRoot(container!);
 
-ReactDOM.render(
+root.render(
   <Provider store={store}>
     <Routers />
   </Provider>,
-  container,
 );
 
 // 开发环境开启热更新

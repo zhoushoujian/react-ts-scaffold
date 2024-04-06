@@ -1,6 +1,5 @@
 import path from 'path';
 import webpack from 'webpack';
-//@ts-ignore
 import { merge } from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
@@ -37,6 +36,9 @@ const dev = merge(commonConf, {
     }),
     new ForkTsCheckerWebpackPlugin(),
   ],
+  optimization: {
+    runtimeChunk: 'single',
+  },
   // devServer: {
   //   historyApiFallback: true,
   //   host: '0.0.0.0',

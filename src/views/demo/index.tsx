@@ -5,33 +5,29 @@ import Loading from '@/components/loading';
 import { updateRedux } from '@/ducks/common';
 import { $getState, $dispatch } from '@/ducks/main';
 import { request } from '@/utils/request';
-import { IRes } from '@/@types/common';
-import Style from './index.module.less';
+import { IApiResponse } from '@/@types/common';
 
 console.log('get redux data => ', $getState().common.redux);
 
-const Home = ({ redux }: { redux: string }) => {
+const Demo = ({ redux }: { redux: string }) => {
   console.log('redux => ', redux);
+
+  const getApi = (): IApiResponse<{ apiCount: string; date: string }> => {
+    return request('https://api.zhoushoujian.com');
+  };
 
   useEffect(() => {
     // console.log('Object.fromEntries', Object.fromEntries);
+    // console.log('spread data', [...new Set([1, 2, 1])]);
     $dispatch(updateRedux('redux update'));
-    request('https://api.zhoushoujian.com').then((res: IRes<{ apiCount: string; date: string }>) => {
+    getApi().then((res) => {
       console.log('res', res);
     });
   }, []);
 
   return (
-    <div className={Style.testContainer}>
-      <div className={Style.content}>
-        <div className={Style.calculator}>
-          <div className={Style.blueball}>
-            <div className={Style.blueball1}></div>
-            <div className={Style.blueball2}></div>
-            <Loading text='Click me' />
-          </div>
-        </div>
-      </div>
+    <div style={{ height: '100vh', width: '100%' }}>
+      <Loading text='hello world, click me!' />
     </div>
   );
 };
@@ -44,4 +40,4 @@ const mapStateToProps = (state: { common: { redux: string } }) => {
 
 const mapDispatchToProps = () => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Demo);

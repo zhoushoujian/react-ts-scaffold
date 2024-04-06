@@ -1,5 +1,6 @@
 import thunk from 'redux-thunk';
-import { createStore, applyMiddleware, compose } from 'redux';
+// eslint-disable-next-line camelcase
+import { legacy_createStore, applyMiddleware, compose } from 'redux';
 import { createLogger } from 'redux-logger';
 import reducer from '@/ducks';
 
@@ -9,7 +10,9 @@ middleware.push(
     collapsed: false,
   }),
 );
-const store = createStore(reducer, compose(applyMiddleware(...middleware)));
-export const $dispatch = store.dispatch as any;
+const store = legacy_createStore(reducer, compose(applyMiddleware(...middleware)));
+export const $dispatch = store.dispatch;
 export const $getState = store.getState as any;
 export default store;
+//@ts-ignore
+// window.$getState = $getState;
