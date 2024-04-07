@@ -2,8 +2,6 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { Menu } from 'antd';
 import * as Icons from '@ant-design/icons';
 import { connect } from 'react-redux';
-import maxLogo from '@/assets/max-logo.png';
-import minLogo from '@/assets/min-logo.png';
 import useRouter from '@/hooks/use-router';
 import { MenuItemType, SubMenuType } from 'antd/lib/menu/hooks/useItems';
 import { isUrl } from '@/utils/common';
@@ -103,12 +101,6 @@ const LeftMenu = ({ menuData, menuFold }: { menuData: IMenuList[]; menuFold: boo
 
   return (
     <div className={styles.container}>
-      <img
-        id='logo'
-        className={menuFold ? styles.minLogo : styles.maxLogo}
-        src={menuFold ? minLogo : maxLogo}
-        alt='logo'
-      />
       <Menu
         theme='dark'
         inlineCollapsed={menuFold}
