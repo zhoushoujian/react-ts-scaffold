@@ -1,4 +1,3 @@
-import { verifySsoToken } from '@szhou/script-tools';
 import { message } from 'antd';
 import * as axiosPackage from 'axios';
 
@@ -26,14 +25,7 @@ export const axiosInterceptorsConfig = (request: axiosPackage.Axios) => {
       const { response } = error;
       const { status } = response || {};
       if (status === 401 || status === 403) {
-        return verifySsoToken({
-          backToLoginFunc: () => {
-            window.location.href = `${window.location.origin}/login`;
-          },
-          //todo
-          setTokenFunc: (token: string) => localStorage.setItem('demo-userToken', token),
-          afterLoginFunc: () => Promise.resolve(true),
-        });
+        //
       }
       return Promise.reject(error); // 返回接口的错误信息
     },
