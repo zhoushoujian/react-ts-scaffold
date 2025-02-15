@@ -4,6 +4,7 @@ import path from 'path';
 //@ts-ignore
 import vitePluginLess2CssModule from 'vite-plugin-less-2cssmodule';
 import { consoleFormat } from '@szhou/script-tools';
+import checker from 'vite-plugin-checker';
 
 consoleFormat();
 
@@ -11,8 +12,17 @@ consoleFormat();
 export default defineConfig({
   root: path.resolve(__dirname, './src'),
   publicDir: path.resolve(__dirname, './public'),
-  //@ts-ignore
-  plugins: [react(), vitePluginLess2CssModule()],
+  plugins: [
+    react(),
+    vitePluginLess2CssModule(),
+    checker({
+      typescript: true,
+      eslint: {
+        lintCommand: 'eslint -c ../.eslintrc.js "./**/*.{js,ts,tsx,jsx}"',
+      },
+      overlay: false,
+    }),
+  ],
   clearScreen: false,
   server: {
     port: 8080,
