@@ -51,6 +51,7 @@
     "src",
     "webpack",
     ".eslintrc.js",
+    "commitlint.config.js",
     "www.ts",
     "vite.config.ts"
   ]

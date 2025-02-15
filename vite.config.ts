@@ -18,7 +18,10 @@ export default defineConfig({
     checker({
       typescript: true,
       eslint: {
-        lintCommand: 'eslint -c ../.eslintrc.js "./**/*.{js,ts,tsx,jsx}"',
+        lintCommand:
+          process.env.NODE_ENV === 'development'
+            ? 'eslint -c ../.eslintrc.js "./**/*.{js,ts,tsx,jsx}"'
+            : 'eslint -c .eslintrc.js "./**/*.{js,ts,tsx,jsx}"',
       },
       overlay: false,
     }),
