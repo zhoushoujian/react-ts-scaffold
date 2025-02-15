@@ -1,8 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-//@ts-ignore
-import vitePluginLess2CssModule from 'vite-plugin-less-2cssmodule';
 import { consoleFormat } from '@szhou/script-tools';
 import checker from 'vite-plugin-checker';
 
@@ -14,7 +12,6 @@ export default defineConfig({
   publicDir: path.resolve(__dirname, './public'),
   plugins: [
     react(),
-    vitePluginLess2CssModule(),
     checker({
       typescript: true,
       eslint: {

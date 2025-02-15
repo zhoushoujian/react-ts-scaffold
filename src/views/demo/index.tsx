@@ -6,6 +6,7 @@ import { updateRedux } from '@/ducks/common';
 import { $getState, $dispatch } from '@/ducks/main';
 import { request } from '@/utils/request';
 import { IApiResponse } from '@/@types/common';
+import styles from './index.module.less';
 
 console.log('get redux data => ', $getState().common.redux);
 
@@ -26,7 +27,7 @@ const Demo = ({ redux }: { redux: string }) => {
   }, []);
 
   return (
-    <div style={{ height: '100vh', width: '100%' }}>
+    <div className={styles.container}>
       <Loading text='hello world, click me!' />
     </div>
   );
